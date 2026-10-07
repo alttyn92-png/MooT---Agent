@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "name": "MOOT — личный ассистент",
+  "short_name": "MOOT",
+  "version": "0.2.0",
+  "description": "MOOT: общение, голосовой разговор и выполнение задач в браузере.",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "notifications",
+    "contextMenus",
+    "webNavigation",
+    "offscreen",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "action": {
+    "default_title": "Open MOOT",
+    "default_icon": {
+      "16": "icons/moot-16.png",
+      "32": "icons/moot-32.png",
+      "48": "icons/moot-48.png",
+      "128": "icons/moot-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/content/page-reader.js",
+        "src/content/dom-scanner.js",
+        "src/content/element-finder.js",
+        "src/content/page-overlay.js",
+        "src/content/editor.js",
+        "src/content/action-executor.js",
+        "src/content/page-observer.js",
+        "src/content/content-script.js",
+        "src/content/messenger.js",
+        "src/content/chat-monitor.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/moot-16.png",
+    "32": "icons/moot-32.png",
+    "48": "icons/moot-48.png",
+    "128": "icons/moot-128.png"
+  }
+}

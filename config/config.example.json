@@ -1,0 +1,34 @@
+{
+  "openai": {
+    "apiKey": "",
+    "baseUrl": "https://api.openai.com/v1"
+  },
+
+  "models": {
+    "cheapModel": "gpt-6-luna",
+    "balancedModel": "gpt-6-sol",
+    "strongModel": "gpt-6-astra",
+    "visionModel": "gpt-6-luna"
+  },
+
+  "voice": {
+    "transcriptionModel": "gpt-4o-mini-transcribe",
+    "speechModel": "gpt-4o-mini-tts",
+    "voice": "alloy",
+    "autoSpeak": false
+  },
+
+  "agent": {
+    "maxSteps": 50,
+    "delayBetweenStepsMs": 150,
+    "observeAfterTool": true,
+    "autoExecute": true
+  },
+
+  "ui": {
+    "language": "ru",
+    "theme": "dark",
+    "showTaskProgress": true,
+    "showToolActivity": true
+  }
+}

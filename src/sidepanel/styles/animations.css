@@ -1,0 +1,209 @@
+@keyframes mut-recording-pulse {
+  0% {
+    box-shadow:
+      0 0 0 0
+      rgba(
+        255,
+        93,
+        115,
+        0.38
+      );
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 8px
+      rgba(
+        255,
+        93,
+        115,
+        0
+      );
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0
+      rgba(
+        255,
+        93,
+        115,
+        0
+      );
+  }
+}
+
+@keyframes mut-fade-in {
+  from {
+    opacity: 0;
+    transform:
+      translateY(
+        4px
+      );
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(
+        0
+      );
+  }
+}
+
+@keyframes mut-scale-in {
+  from {
+    opacity: 0;
+    transform:
+      scale(
+        0.96
+      );
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(
+        1
+      );
+  }
+}
+
+@keyframes mut-spin {
+  from {
+    transform:
+      rotate(
+        0deg
+      );
+  }
+
+  to {
+    transform:
+      rotate(
+        360deg
+      );
+  }
+}
+
+@keyframes mut-dot-bounce {
+  0%,
+  80%,
+  100% {
+    transform:
+      translateY(
+        0
+      );
+
+    opacity:
+      0.45;
+  }
+
+  40% {
+    transform:
+      translateY(
+        -4px
+      );
+
+    opacity:
+      1;
+  }
+}
+
+.mut-message {
+  animation:
+    mut-fade-in
+    0.18s
+    ease;
+}
+
+.mut-attachment {
+  animation:
+    mut-scale-in
+    0.16s
+    ease;
+}
+
+.mut-loading-logo {
+  animation:
+    mut-scale-in
+    0.3s
+    ease;
+}
+
+.mut-thinking {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mut-thinking__dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 999px;
+
+  background:
+    currentColor;
+
+  animation:
+    mut-dot-bounce
+    1.2s
+    infinite;
+}
+
+.mut-thinking__dot:nth-child(2) {
+  animation-delay:
+    0.15s;
+}
+
+.mut-thinking__dot:nth-child(3) {
+  animation-delay:
+    0.3s;
+}
+
+.mut-spinner {
+  width: 16px;
+  height: 16px;
+
+  border:
+    2px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
+  border-top-color:
+    currentColor;
+
+  border-radius:
+    999px;
+
+  animation:
+    mut-spin
+    0.8s
+    linear
+    infinite;
+}
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+}

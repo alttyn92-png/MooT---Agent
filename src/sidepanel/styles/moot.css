@@ -1,0 +1,83 @@
+:root {
+  --mut-bg:#111816; --mut-bg-soft:#17211d; --mut-panel:#1c2923; --mut-panel-soft:#26372e;
+  --mut-border:#ffffff12; --mut-text:#edf3ed; --mut-text-soft:#b3c1b8; --mut-text-dim:#8c9e92;
+  --mut-accent:#b8f5d0; --mut-accent-soft:#b8f5d014; --mut-success:#b8f5d0;
+  color-scheme:dark;
+}
+[hidden] { display:none !important; }
+button { -webkit-tap-highlight-color:transparent; }
+button:disabled { cursor:default; opacity:.45; }
+.mut-shell { display:flex; flex-direction:column; background:radial-gradient(ellipse at 70% 10%,#25392b55,transparent 50%),var(--mut-bg); }
+.mut-header { flex-shrink:0; min-height:76px; padding:16px 20px; background:#111816e8; }
+.mut-main { flex:1; min-height:0; }
+.mut-brand__logo { width:38px; height:38px; border-radius:12px; background:none; box-shadow:none; }
+.mut-brand__name { font-size:19px; letter-spacing:2px; font-weight:800; }
+.mut-brand__status { font-size:11px; }
+.mut-icon-button { background:transparent; width:32px; height:36px; font-size:19px; }
+.mut-icon-button.is-active { color:var(--mut-accent); }
+.moot-icon { display:block; width:20px; height:20px; flex-shrink:0; pointer-events:none; }
+.mut-header__actions { gap:5px; }
+.mut-header__actions .mut-icon-button { width:34px; height:36px; border:1px solid transparent; border-radius:11px; color:var(--mut-text-soft); }
+.mut-header__actions .mut-icon-button:hover:not(:disabled) { color:var(--mut-text); background:#ffffff09; border-color:#ffffff12; transform:none; }
+.mut-header__actions .mut-icon-button.is-active { color:var(--mut-accent); background:var(--mut-accent-soft); border-color:#b8f5d024; }
+.mut-header__actions .mut-icon-button--danger { color:#ff9fa9; }
+.mut-messages { padding:24px 20px; gap:22px; }
+.moot-welcome { margin:auto; width:100%; max-width:420px; padding:12px 0; }
+.moot-eyebrow { color:var(--mut-text-dim); font-size:9px; font-weight:600; letter-spacing:2px; margin-bottom:24px; }
+.moot-hero-logo { width:64px; height:64px; transform:rotate(-7deg); margin-bottom:14px; }
+.moot-welcome h1 { margin:0 0 14px; font-size:clamp(28px,8vw,42px); line-height:1.08; font-weight:550; letter-spacing:-1.6px; }
+.moot-welcome p { color:var(--mut-text-soft); font-size:14px; line-height:1.65; margin:0 0 22px; }
+.moot-hero-call { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; padding:15px 17px; background:var(--mut-accent); color:#142c25; border-radius:14px; font-size:13px; font-weight:700; cursor:pointer; }
+.moot-hero-call:hover { background:#d1ffdf; }
+.moot-voice-hint { text-align:center; font-size:10px; color:var(--mut-text-dim); margin:10px 0 28px; }
+.moot-suggestions { display:grid; gap:8px; }
+.moot-suggestions button { display:flex; width:100%; gap:12px; align-items:center; text-align:left; padding:13px; border:1px solid var(--mut-border); border-radius:13px; color:var(--mut-text); background:#ffffff03; cursor:pointer; }
+.moot-suggestions button:hover { background:var(--mut-panel); border-color:#b8f5d045; }
+.moot-suggestions button>span { color:var(--mut-accent); font-size:22px; width:22px; text-align:center; }
+.moot-suggestions strong { display:block; font-size:12px; font-weight:500; }
+.moot-suggestions small { display:block; font-size:10px; color:var(--mut-text-dim); margin-top:4px; }
+.moot-suggestions b { margin-left:auto; color:var(--mut-text-dim); font-size:14px; font-weight:400; }
+.moot-welcome-note { text-align:center; font-size:9px; color:var(--mut-text-dim); margin-top:24px; }
+.mut-composer { flex-shrink:0; padding:12px 16px 16px; background:#111816; border-top:0; }
+.mut-composer__box { background:#1b2520; border-radius:20px; padding:12px; box-shadow:none; }
+.mut-composer__box:focus-within { border-color:#b8f5d060; box-shadow:0 0 0 3px #b8f5d006; }
+.mut-input { min-height:48px; font-size:13px; }
+.mut-input:focus-visible { outline:none; }
+.moot-monitor-strip { display:flex; align-items:center; gap:12px; padding:12px 14px; margin-bottom:10px; border:1px solid #b8f5d033; border-radius:14px; background:#b8f5d00a; }
+.moot-monitor-strip>div { min-width:0; flex:1; }
+.moot-monitor-strip strong { display:block; color:var(--mut-accent); font-size:12px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.moot-monitor-strip span { display:block; font-size:11px; color:var(--mut-text-soft); line-height:1.5; margin-top:4px; overflow-wrap:anywhere; }
+.moot-monitor-strip button { padding:7px 10px; border:1px solid #ffffff18; border-radius:8px; background:transparent; color:var(--mut-text-soft); cursor:pointer; }
+.moot-monitor-strip [data-monitor-status] { max-height:180px; overflow-y:auto; }
+.moot-monitor-strip [data-monitor-status]>div { display:flex; align-items:center; gap:8px; padding:4px 0; }
+.moot-monitor-strip [data-monitor-status]>div>span { flex:1; min-width:0; }
+.moot-monitor-strip [data-monitor-status] button { flex-shrink:0; padding:4px 6px; font-size:10px; }
+.mut-input:disabled { opacity:.65; }
+.mut-send-button { background:var(--mut-accent); color:#142c25; box-shadow:none; border-radius:50%; }
+.moot-call-button { min-height:34px; padding:6px 12px; border:1px solid #ffffff15; border-radius:20px; color:var(--mut-text-soft); background:transparent; cursor:pointer; font-size:11px; }
+.moot-call-button:before { content:'◉'; color:var(--mut-accent); margin-right:7px; }
+.moot-call-button.is-active { background:#b8f5d018; border-color:#b8f5d050; color:var(--mut-accent); }
+.mut-agent-runtime { padding:0 4px; }
+.mut-agent-status[data-state="idle"] { display:none; }
+.mut-runtime-status { text-align:center; padding-top:10px; font-size:10px; }
+.mut-message__bubble { font-size:14px; line-height:1.65; max-width:94%; padding:13px 16px; }
+.mut-message--user .mut-message__bubble { background:#294036; color:#edf3ed; border:1px solid #b8f5d018; border-radius:18px 18px 4px 18px; }
+.mut-message--assistant .mut-message__bubble { background:transparent; border:0; padding:2px 0; width:100%; }
+.mut-message--assistant .mut-message__bubble:before { content:'MOOT'; display:block; color:var(--mut-accent); font-size:10px; letter-spacing:1.5px; font-weight:700; margin-bottom:8px; }
+.mut-message--error .mut-message__bubble { color:#ffb7bd; }
+.mut-drawer { background:var(--mut-bg); }
+.mut-primary-button { background:var(--mut-accent); color:#142c25; }
+.mut-settings-group { border-radius:16px; padding:16px; }
+.mut-field__input { font-size:13px; padding:12px; }
+.mut-field__label,.mut-switch-row { font-size:12px; }
+.moot-voice-strip { display:flex; align-items:center; gap:10px; padding:12px; margin-bottom:10px; border:1px solid #b8f5d030; border-radius:14px; color:var(--mut-accent); background:#b8f5d009; font-size:11px; }
+.moot-voice-strip button { margin-left:auto; background:transparent; color:inherit; cursor:pointer; font-size:22px; width:28px; height:28px; }
+.moot-wave { display:flex; align-items:center; gap:3px; height:22px; }
+.moot-wave i { width:3px; height:6px; border-radius:4px; background:var(--mut-accent); }
+.moot-wave i:nth-child(2),.moot-wave i:nth-child(4) { height:13px; }
+.moot-wave i:nth-child(3) { height:20px; }
+[data-state="hearing"] .moot-wave i { animation:moot-wave .6s ease-in-out infinite alternate; }
+[data-state="hearing"] .moot-wave i:nth-child(even) { animation-delay:.2s; }
+@keyframes moot-wave { to { transform:scaleY(.4); } }
+@media(max-width:350px) { .mut-header { padding:12px; } .mut-header__actions { gap:0; } .mut-icon-button { width:29px; } .mut-messages { padding:20px 16px; } .mut-composer { padding:10px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }

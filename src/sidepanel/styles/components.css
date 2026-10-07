@@ -1,0 +1,959 @@
+.mut-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.mut-brand__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 auto;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c5cff,
+      #4f7cff
+    );
+
+  color: white;
+  font-weight: 800;
+  font-size: 18px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(124, 92, 255, 0.22);
+}
+
+.mut-brand__text {
+  min-width: 0;
+}
+
+.mut-brand__name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.mut-brand__status {
+  margin-top: 1px;
+
+  color: var(--mut-text-dim);
+  font-size: 11px;
+}
+
+.mut-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.mut-icon-button,
+.mut-composer-button,
+.mut-send-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.14s ease,
+    background 0.14s ease,
+    opacity 0.14s ease;
+}
+
+.mut-icon-button:hover,
+.mut-composer-button:hover,
+.mut-send-button:hover {
+  transform: translateY(-1px);
+}
+
+.mut-icon-button {
+  width: 34px;
+  height: 34px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  color: var(--mut-text);
+}
+
+.mut-icon-button:hover {
+  background:
+    rgba(255, 255, 255, 0.09);
+}
+
+.mut-icon-button.is-active {
+  background:
+    var(--mut-accent-soft);
+
+  color:
+    #c9beff;
+}
+
+.mut-icon-button--danger {
+  color:
+    #ff97a6;
+}
+
+.mut-icon-button--danger:not(:disabled):hover {
+  background:
+    rgba(255, 93, 115, 0.12);
+}
+
+.mut-icon-button:disabled,
+.mut-send-button:disabled {
+  opacity: 0.38;
+
+  cursor: default;
+
+  transform: none;
+}
+
+/* =====================================================
+   COMPOSER
+   ===================================================== */
+
+.mut-composer {
+  padding:
+    8px
+    10px
+    10px;
+
+  border-top:
+    1px solid
+    var(--mut-border);
+
+  background:
+    rgba(15, 17, 21, 0.96);
+
+  backdrop-filter:
+    blur(16px);
+}
+
+.mut-composer__box {
+  padding: 8px;
+
+  border:
+    1px solid
+    var(--mut-border);
+
+  border-radius:
+    16px;
+
+  background:
+    var(--mut-panel);
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.18);
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.mut-composer__box:focus-within {
+  border-color:
+    rgba(124, 92, 255, 0.6);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(124, 92, 255, 0.08);
+}
+
+.mut-input {
+  display: block;
+
+  width: 100%;
+  min-height: 38px;
+  max-height: 160px;
+
+  padding:
+    4px
+    5px
+    8px;
+
+  resize: none;
+
+  overflow-y: auto;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color:
+    var(--mut-text);
+
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+.mut-input::placeholder {
+  color:
+    var(--mut-text-dim);
+}
+
+.mut-composer__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+}
+
+.mut-composer__actions-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mut-composer-button {
+  width: 32px;
+  height: 32px;
+
+  background:
+    transparent;
+
+  color:
+    var(--mut-text-soft);
+
+  font-size: 15px;
+}
+
+.mut-composer-button:hover {
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color: white;
+}
+
+.mut-composer-button.is-active {
+  background:
+    rgba(255, 93, 115, 0.14);
+
+  color:
+    #ff93a2;
+
+  animation:
+    mut-recording-pulse
+    1.2s
+    infinite;
+}
+
+.mut-send-button {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c5cff,
+      #5e72ff
+    );
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow:
+    0 6px 18px
+    rgba(124, 92, 255, 0.24);
+}
+
+.mut-runtime-status {
+  min-height: 16px;
+
+  padding:
+    6px
+    4px
+    0;
+
+  overflow: hidden;
+
+  color:
+    var(--mut-text-dim);
+
+  font-size: 10px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* =====================================================
+   ATTACHMENTS
+   ===================================================== */
+
+.mut-attachments {
+  display: flex;
+  gap: 8px;
+
+  padding:
+    8px
+    10px;
+
+  overflow-x: auto;
+
+  border-top:
+    1px solid
+    var(--mut-border);
+
+  background:
+    var(--mut-bg-soft);
+}
+
+.mut-attachment {
+  position: relative;
+
+  width: 62px;
+  height: 62px;
+
+  flex: 0 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  border:
+    1px solid
+    var(--mut-border);
+
+  background:
+    var(--mut-panel);
+}
+
+.mut-attachment__image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.mut-attachment__remove {
+  position: absolute;
+
+  top: 3px;
+  right: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(0, 0, 0, 0.75);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* =====================================================
+   AGENT STATUS
+   ===================================================== */
+
+.mut-agent-runtime {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-bottom: 7px;
+}
+
+.mut-agent-status {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  font-size: 11px;
+}
+
+.mut-agent-status__main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color:
+    var(--mut-text-soft);
+}
+
+.mut-agent-status__dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    var(--mut-text-dim);
+}
+
+.mut-agent-status[data-state="working"]
+.mut-agent-status__dot,
+.mut-agent-status[data-state="thinking"]
+.mut-agent-status__dot {
+  background:
+    var(--mut-accent);
+
+  box-shadow:
+    0 0 10px
+    rgba(124, 92, 255, 0.7);
+}
+
+.mut-agent-status[data-state="listening"]
+.mut-agent-status__dot {
+  background:
+    #ff5d73;
+}
+
+.mut-agent-status[data-state="complete"]
+.mut-agent-status__dot {
+  background:
+    var(--mut-success);
+}
+
+.mut-agent-status[data-state="error"]
+.mut-agent-status__dot {
+  background:
+    var(--mut-danger);
+}
+
+.mut-agent-status__detail {
+  margin-left: 13px;
+
+  color:
+    var(--mut-text-dim);
+
+  font-size: 10px;
+}
+
+/* =====================================================
+   TASK PROGRESS
+   ===================================================== */
+
+.mut-task-progress {
+  padding:
+    7px
+    9px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+}
+
+.mut-task-progress__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  margin-bottom: 5px;
+
+  font-size: 10px;
+
+  color:
+    var(--mut-text-dim);
+}
+
+.mut-task-progress__action {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow:
+    ellipsis;
+}
+
+.mut-task-progress__bar {
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.mut-task-progress__fill {
+  height: 100%;
+
+  width: 0%;
+
+  border-radius:
+    inherit;
+
+  background:
+    var(--mut-accent);
+
+  transition:
+    width 0.2s ease;
+}
+
+/* =====================================================
+   STOP BUTTON
+   ===================================================== */
+
+.mut-stop-button {
+  display: none;
+
+  align-self:
+    flex-start;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding:
+    6px
+    9px;
+
+  border-radius:
+    9px;
+
+  background:
+    rgba(255, 93, 115, 0.12);
+
+  color:
+    #ff8ea0;
+
+  cursor: pointer;
+}
+
+.mut-stop-button.is-active {
+  display: inline-flex;
+}
+
+.mut-stop-button:disabled {
+  opacity: 0.5;
+
+  cursor: default;
+}
+
+/* =====================================================
+   DRAWERS
+   HISTORY / SETTINGS
+
+   ЭТО ГЛАВНОЕ ИСПРАВЛЕНИЕ
+   ===================================================== */
+
+.mut-drawer {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 999999;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background:
+    #0f1115;
+
+  color:
+    var(--mut-text);
+
+  animation:
+    mut-fade-in
+    0.15s
+    ease;
+}
+
+.mut-drawer[hidden] {
+  display: none !important;
+}
+
+.mut-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 62px;
+
+  padding:
+    10px
+    14px;
+
+  border-bottom:
+    1px solid
+    var(--mut-border);
+}
+
+.mut-drawer__title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.mut-drawer__actions {
+  padding:
+    12px;
+}
+
+/* =====================================================
+   PRIMARY BUTTON
+   ===================================================== */
+
+.mut-primary-button {
+  width: 100%;
+
+  padding:
+    10px
+    13px;
+
+  border: 0;
+
+  border-radius:
+    11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c5cff,
+      #5e72ff
+    );
+
+  color:
+    white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.14s ease,
+    opacity 0.14s ease;
+}
+
+.mut-primary-button:hover {
+  transform:
+    translateY(-1px);
+}
+
+.mut-primary-button:active {
+  transform:
+    translateY(0);
+}
+
+/* =====================================================
+   HISTORY
+   ===================================================== */
+
+.mut-history-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding:
+    0
+    12px
+    20px;
+
+  overflow-y: auto;
+}
+
+.mut-history-item {
+  display: flex;
+  align-items: center;
+
+  border-radius:
+    11px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    transparent;
+}
+
+.mut-history-item:hover {
+  border-color:
+    var(--mut-border);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+.mut-history-item__main {
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    10px;
+
+  border: 0;
+
+  background:
+    transparent;
+
+  color:
+    inherit;
+
+  text-align:
+    left;
+
+  cursor: pointer;
+}
+
+.mut-history-item__title {
+  overflow: hidden;
+
+  color:
+    var(--mut-text);
+
+  font-size:
+    13px;
+
+  white-space:
+    nowrap;
+
+  text-overflow:
+    ellipsis;
+}
+
+.mut-history-item__date {
+  margin-top:
+    3px;
+
+  color:
+    var(--mut-text-dim);
+
+  font-size:
+    10px;
+}
+
+.mut-history-item__delete {
+  width:
+    30px;
+
+  height:
+    30px;
+
+  margin-right:
+    6px;
+
+  border-radius:
+    8px;
+
+  background:
+    transparent;
+
+  color:
+    var(--mut-text-dim);
+
+  cursor:
+    pointer;
+}
+
+.mut-history-item__delete:hover {
+  background:
+    rgba(255, 93, 115, 0.1);
+
+  color:
+    #ff8395;
+}
+
+.mut-empty-state {
+  padding:
+    30px
+    10px;
+
+  text-align:
+    center;
+
+  color:
+    var(--mut-text-dim);
+
+  font-size:
+    13px;
+}
+
+/* =====================================================
+   SETTINGS
+   ===================================================== */
+
+.mut-settings-content {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    15px;
+
+  padding:
+    14px;
+
+  overflow-y:
+    auto;
+}
+
+.mut-settings-group {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    9px;
+
+  padding:
+    12px;
+
+  border:
+    1px solid
+    var(--mut-border);
+
+  border-radius:
+    13px;
+
+  background:
+    var(--mut-bg-soft);
+}
+
+.mut-settings-group__title {
+  margin-bottom:
+    3px;
+
+  color:
+    var(--mut-text);
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+}
+
+.mut-field {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+}
+
+.mut-field__label {
+  color:
+    var(--mut-text-soft);
+
+  font-size:
+    11px;
+}
+
+.mut-field__input {
+  width:
+    100%;
+
+  padding:
+    9px
+    10px;
+
+  border:
+    1px solid
+    var(--mut-border);
+
+  border-radius:
+    9px;
+
+  outline:
+    0;
+
+  background:
+    var(--mut-panel);
+
+  color:
+    var(--mut-text);
+}
+
+.mut-field__input:focus {
+  border-color:
+    var(--mut-accent);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(124, 92, 255, 0.08);
+}
+
+.mut-switch-row {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
+  color:
+    var(--mut-text-soft);
+
+  font-size:
+    12px;
+}
+
+.mut-switch-row input {
+  width:
+    16px;
+
+  height:
+    16px;
+
+  accent-color:
+    var(--mut-accent);
+}
+
+.mut-settings-status {
+  min-height:
+    18px;
+
+  text-align:
+    center;
+
+  color:
+    var(--mut-text-dim);
+
+  font-size:
+    11px;
+}

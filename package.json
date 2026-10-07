@@ -1,0 +1,40 @@
+{
+  "name": "moot-browser-assistant",
+  "version": "0.2.0",
+  "private": true,
+  "description": "MOOT - personal AI browser assistant for Chrome",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "test:extension": "node scripts/check-extension.mjs",
+    "test:messengers": "node scripts/check-messengers.mjs",
+    "test:monitor": "node scripts/check-monitor.mjs"
+  },
+  "keywords": [
+    "mut",
+    "ai",
+    "assistant",
+    "chrome-extension",
+    "browser-agent",
+    "openai",
+    "automation",
+    "voice-assistant",
+    "vision",
+    "agent"
+  ],
+  "author": "MOOT",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "openai": "^6.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "vite": "^8.0.0"
+  }
+}
